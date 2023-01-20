@@ -439,6 +439,12 @@ metrics:
   #          description: "{{ $labels.pod }} on {{ $labels.nodename }} is down"
 
 tracing: {}
+  # openTelemetry:
+  #   address: 127.0.0.1:4317
+  #   grpc: true
+  #   insecure: true
+  #   path: /v1/traces
+  #   
   # instana:
   #   localAgentHost: 127.0.0.1
   #   localAgentPort: 42699

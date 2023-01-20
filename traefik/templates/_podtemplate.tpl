@@ -329,8 +329,22 @@
           - "--metrics.openTelemetry.grpc={{ . }}"
            {{- end }}
           {{- end }}
-
           {{- if .Values.tracing }}
+          {{- if .Values.tracing.openTelemetry }}
+          - "--tracing.openTelemetry=true"
+          {{- if .Values.tracing.openTelemetry.address }}
+          - "--tracing.openTelemetry.address={{ .Values.tracing.openTelemetry.address }}"
+          {{- end }}
+          {{- if .Values.tracing.openTelemetry.insecure }}
+          - "--tracing.openTelemetry.insecure=true"
+          {{- end }}
+          {{- if .Values.tracing.openTelemetry.grpc }}
+          - "--tracing.openTelemetry.grpc=true"
+          {{- end }}
+          {{- if .Values.tracing.openTelemetry.path }}
+          - "--tracing.openTelemetry.path={{ .Values.tracing.openTelemetry.path }}"
+          {{- end }}
+          {{- end }}
           {{- if .Values.tracing.instana }}
           - "--tracing.instana=true"
           {{- if .Values.tracing.instana.localAgentHost }}
